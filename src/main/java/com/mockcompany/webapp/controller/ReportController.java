@@ -18,37 +18,40 @@ import java.util.Map;
 @RestController
 public class ReportController {
 
-    private static final String[] importantTerms = new String[]{
-        "Cool", "Amazing", "Perfect", "Kids"
-
+    // After reading code/tests, we can capture the important terms in an array!
+    private static final String[] importantTerms = new String[] {
+            "Cool",
+            "Amazing",
+            "Perfect",
+            "Kids"
     };
 
-    /**
-     * The people that wrote this code didn't know about JPA Spring Repository interfaces!
-     */
     private final EntityManager entityManager;
-    private SearchService searchService = null;
+    // Declare SearchService same as EntityManager
+    private final SearchService searchService;
 
+    // Add the SearchService to the constructor
     @Autowired
-    public ReportController(EntityManager entityManager) {
+    public ReportController(EntityManager entityManager, SearchService searchService) {
         this.entityManager = entityManager;
         this.searchService = searchService;
     }
 
-
     @GetMapping("/api/products/report")
     public SearchReportResponse runReport() {
+        // We could use the search service and do an empty string query to get the count but this is much more efficient
         Number count = (Number) this.entityManager.createQuery("SELECT count(item) FROM ProductItem item").getSingleResult();
 
+        // For each important term, query on it and add size of results to our Map
         Map<String, Integer> hits = new HashMap<>();
-        for(String term : importantTerms){
+        for (String term : importantTerms) {
             hits.put(term, searchService.search(term).size());
         }
 
+        // Transform to API response and return
         SearchReportResponse response = new SearchReportResponse();
         response.setProductCount(count.intValue());
         response.setSearchTermHits(hits);
-
         return response;
     }
 }
