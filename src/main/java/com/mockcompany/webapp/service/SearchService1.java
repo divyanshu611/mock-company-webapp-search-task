@@ -10,12 +10,12 @@ import java.util.Collection;
 import java.util.List;
 
 @Service
-public class SearchService {
+public class SearchService1 {
 
     private final ProductItemRepository productItemRepository;
 
     @Autowired
-    public SearchService(ProductItemRepository productItemRepository) {
+    public SearchService1(ProductItemRepository productItemRepository) {
         this.productItemRepository = productItemRepository;
     }
 

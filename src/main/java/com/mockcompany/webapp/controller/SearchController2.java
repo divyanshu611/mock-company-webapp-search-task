@@ -40,7 +40,7 @@ import java.util.List;
  *   https://docs.oracle.com/javase/tutorial/java/annotations/
  */
 @RestController
-public class SearchController {
+public class SearchController2 {
 
     /**
      * This is a instance field.  It is provided by the spring framework through the constructor because of the
@@ -50,7 +50,7 @@ public class SearchController {
     private final ProductItemRepository productItemRepository;
 
     @Autowired
-    public SearchController(ProductItemRepository productItemRepository) {
+    public SearchController2(ProductItemRepository productItemRepository) {
         this.productItemRepository = productItemRepository;
     }
 

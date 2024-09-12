@@ -38,14 +38,14 @@ import java.util.Collection;
  *   https://docs.oracle.com/javase/tutorial/java/annotations/
  */
 @RestController
-public class SearchController {
+public class SearchController1 {
 
     // Inject the new service into our class
     private final SearchService searchService;
 
     // Update constructor to inject SearchService
     @Autowired
-    public SearchController(SearchService searchService) {
+    public SearchController1(SearchService searchService) {
         this.searchService = searchService;
     }
 

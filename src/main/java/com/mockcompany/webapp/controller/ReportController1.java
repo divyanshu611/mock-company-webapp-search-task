@@ -16,7 +16,7 @@ import java.util.Map;
  * product count.
  */
 @RestController
-public class ReportController {
+public class ReportController1 {
 
     // After reading code/tests, we can capture the important terms in an array!
     private static final String[] importantTerms = new String[] {
@@ -32,7 +32,7 @@ public class ReportController {
 
     // Add the SearchService to the constructor
     @Autowired
-    public ReportController(EntityManager entityManager, SearchService searchService) {
+    public ReportController1(EntityManager entityManager, SearchService searchService) {
         this.entityManager = entityManager;
         this.searchService = searchService;
     }

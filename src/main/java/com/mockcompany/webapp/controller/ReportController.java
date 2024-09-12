@@ -27,7 +27,7 @@ public class ReportController {
      * The people that wrote this code didn't know about JPA Spring Repository interfaces!
      */
     private final EntityManager entityManager;
-    private final SearchService searchService = null;
+    private SearchService searchService = null;
 
     @Autowired
     public ReportController(EntityManager entityManager) {
